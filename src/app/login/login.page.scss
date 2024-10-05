@@ -1,0 +1,84 @@
+ion-content {
+  --background: url('../../assets/b.jpg')  repeat;
+}
+
+.auth-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.heading{
+  font-size: 32px;
+  font-weight: bold;
+}
+.auth-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+.login-button{
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  --border-radius: 12px;
+  margin-top: 60px;
+  --box-shadow: none;
+}
+
+.google-button{
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  --border-radius: 12px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  --box-shadow: none;
+}
+
+.auth-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.auth-input {
+  margin-bottom: 1rem;
+}
+
+ion-item {
+  --border-radius: 0.5rem;
+  --inner-padding-top: 10px;
+  --inner-padding-bottom: 10px;
+}
+
+ion-button {
+  margin-top: 1rem;
+  --border-radius: 1.5rem;
+  --padding-top: 0.75rem;
+  --padding-bottom: 0.75rem;
+  --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.google-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.auth-signup {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+
+  a {
+    color: #3880ff;
+    text-decoration: none;
+  }
+}

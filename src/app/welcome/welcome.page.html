@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Today</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="stats-chart-outline"></ion-icon>
+      <ion-icon name="heart-outline"></ion-icon>
+      <ion-icon name="chatbubble-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Date Picker -->
+  <div class="date-picker">
+    <div class="date-item">Mon<br><span>26</span></div>
+    <div class="date-item">Tue<br><span>27</span></div>
+    <div class="date-item selected">Wed<br><span>28</span></div>
+    <div class="date-item">Thu<br><span>29</span></div>
+    <div class="date-item">Fri<br><span>30</span></div>
+    <div class="date-item">Sat<br><span>31</span></div>
+    <div class="date-item">Sun<br><span>01</span></div>
+  </div>
+
+  <!-- Premium Banner -->
+  <ion-card class="premium-banner">
+    <ion-card-content>
+      <ion-label>Unlock Zikr Tracker, Qaza Tracker functionalities with Premium!</ion-label>
+      <ion-button expand="block" color="secondary">Claim Now!</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Zikr Trackers -->
+  <div class="zikr-trackers">
+    <div class="zikr-item">
+      <ion-label>Istighfar</ion-label>
+      <ion-progress-bar value="0.24"></ion-progress-bar>
+      <div class="zikr-progress">24/100</div>
+    </div>
+    <div class="zikr-item">
+      <ion-label>Salawat</ion-label>
+      <ion-progress-bar value="0.44"></ion-progress-bar>
+      <div class="zikr-progress">44/100</div>
+    </div>
+    <div class="zikr-item">
+      <ion-label>Dua for parents</ion-label>
+      <ion-progress-bar value="0.3"></ion-progress-bar>
+      <div class="zikr-progress">6/20</div>
+    </div>
+    <div class="zikr-item">
+      <ion-label>La ilaha illallahu...</ion-label>
+      <ion-progress-bar value="0.24"></ion-progress-bar>
+      <div class="zikr-progress">8/33</div>
+    </div>
+  </div>
+
+  <!-- Manual Progress -->
+  <ion-label class="manual-progress">Long tap to set progress manually</ion-label>
+</ion-content>
+
+<!-- Floating Action Button -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<!-- Footer Icons -->
+<ion-footer>
+  <ion-tab-bar>
+    <ion-tab-button>
+      <ion-icon name="shield-checkmark-outline"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button>
+      <ion-icon name="leaf-outline"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button>
+      <ion-icon name="book-outline"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

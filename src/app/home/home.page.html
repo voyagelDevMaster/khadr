@@ -1,0 +1,128 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="wrapper">
+    <ion-item lines="none">
+      <ion-label color="light">
+        <div>
+          <ion-icon name="locate-outline"></ion-icon>
+          <ion-text>ٱلسَّلَامُ عَلَيْكُمْ</ion-text>
+        </div>
+        <p>As-salāmu ʿalaykum</p>
+        <p>Wird Khadr</p>
+      </ion-label>
+      <ion-fab-button size="small" (click)="openSetting()">
+        <ion-icon name="settings-outline" size="large"  color="medium"></ion-icon>
+      </ion-fab-button>
+    </ion-item>
+    <ion-card *ngIf="gregorianDate && hijriDate" class="date" mode="ios">
+      <ion-card-content>
+        <ion-text color="tertiary">{{hijriDate.weekday.en}} {{hijriDate.day}} {{hijriDate.month.en}}
+          {{hijriDate.year}}</ion-text><br>
+        <ion-text color="tertiary">{{hijriDate.weekday.ar}} {{hijriDate.day}} {{hijriDate.month.ar}}
+          {{hijriDate.year}}</ion-text>
+      </ion-card-content>
+    </ion-card>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-item class="el" mode="ios" lines="none">
+    <ion-grid class="icon-grid">
+      <ion-row class="icon-row" justify-content-center align-items-center>
+        <ion-col (click)="bloc()" class="icon-col" size="auto">
+          <img alt="About" src="assets/ti.png" class="icon-img" />
+          <ion-label class="icon-label">
+            <strong><h6>Multimédia</h6></strong>
+          </ion-label>
+        </ion-col>
+        <ion-col id="open-modal" class="icon-col" size="auto">
+          <img alt="Open Modal Icon" src="assets/pri.png" class="icon-img" />
+          <ion-label  class="icon-label">
+            <strong><h6>Horaires Priere</h6></strong>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <div *ngFor="let tasbih of tasbihs | async">
+    <ion-card class="tasbih" [routerLink]="['/', 'tasbih', tasbih.id]" >
+      <ion-item lines="none" [button]="true">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="tasbih.image"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <ion-text class="date">
+            {{ tasbih.arabic_name}}
+          </ion-text>
+          <p class="title">
+            <ion-text color="tertiary"> {{ tasbih.fr_name}} </ion-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+
+  </div>
+  <ion-modal #modal trigger="about" [initialBreakpoint]="0.85" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+    <ng-template>
+      <ion-header >
+        <ion-toolbar color="tertiary">
+          <br>
+          <ion-title>{{ 'ABOUT' | translate }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" color="light">
+        <iframe [src]="sanitizedUrl" width="100%" height="100%" frameborder="0"></iframe>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.85" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+    <ng-template>
+      <ion-header >
+        <ion-toolbar color="tertiary">
+          <br>
+          <ion-title>{{ 'PRAYER' | translate }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list *ngIf="prayerTimes">
+          <ion-list-header mode="ios">
+            <ion-label>
+              <ion-text>
+                {{hijriDate.weekday.en}} {{hijriDate.day}} {{hijriDate.month.en}} {{hijriDate.year}}
+              </ion-text>
+              <p>
+                <ion-text>
+                  {{ 'ZONE' | translate }}: {{location}}
+                </ion-text><br>
+                <ion-text>
+                  {{ 'CALCULATION' | translate }}: {{method}}
+                </ion-text>
+              </p>
+            </ion-label>
+          </ion-list-header>
+          <br>
+          <ion-item>
+            <ion-label>Fajr</ion-label>
+            <ion-text slot="end">{{prayerTimes.Fajr}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Dhuhr</ion-label>
+            <ion-text slot="end">{{prayerTimes.Dhuhr}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Asr</ion-label>
+            <ion-text slot="end">{{prayerTimes.Asr}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Maghrib</ion-label>
+            <ion-text slot="end">{{prayerTimes.Maghrib}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Isha</ion-label>
+            <ion-text slot="end">{{prayerTimes.Isha}}</ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

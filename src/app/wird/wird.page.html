@@ -1,0 +1,121 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="wrapper">
+    <ion-item lines="none">
+      <ion-fab-button size="small" id="lang">
+        <ion-icon name="language-outline" color="tertiary"></ion-icon>
+      </ion-fab-button>
+      <ion-label color="light">
+        <ion-title>{{name}}</ion-title>
+      </ion-label>
+      <ion-fab-button size="small" (click)="close()" slot="end">
+        <ion-icon name="close-outline" color="tertiary"></ion-icon>
+      </ion-fab-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let wirds of allWirds; let i = index">
+    <div *ngIf="i === currentWirdIndex">
+    <ion-card color="tertiary">
+      <ion-card-header color="tertiary">
+        <ion-segment class="segment"    value="arabic" (ionChange)="segmentChanged($event)"  mode="ios">
+          <ion-segment-button value="arabic">
+            <ion-label>{{ 'AR' | translate }}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="transcription">
+            <ion-label>{{ 'TRANSCRIPTION' | translate }}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="traduction">
+            <ion-label>{{ 'TRANSLATION' | translate }}</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-card-header>
+      <ion-card-content>
+        <div  class="card-scroll">
+          <div class="scrollable-content" *ngIf="segment === 'arabic'" >
+            <div class="arabic-text"> {{wirds?.ar_content}}</div>
+          </div>
+          <div class="scrollable-content" *ngIf="segment === 'transcription'">
+            {{wirds?.transcription}}
+          </div>
+          <div class="scrollable-content" *ngIf="segment === 'traduction'">
+            <span *ngIf="languages === 'fr'" >{{wirds?.fr_content}}</span>
+            <span *ngIf="languages === 'en'" >{{wirds?.en_content}}</span>
+            <span *ngIf="languages === 'ml'" >{{wirds?.ml_content}}</span>
+          </div>
+
+        </div>
+      </ion-card-content>
+      <ion-card-footer>
+        <ion-item class="count" color="tertiary" lines="none">
+          <div slot="start">
+            <ion-button size="large" color="tertiary">
+              <ion-icon slot="icon-only" name="list-outline" size="large"></ion-icon>
+            </ion-button>
+          </div>
+          <div  class="numOrder">
+            <ion-text color="light"><h3>{{ 'STEP' | translate }} {{wirds?.numOrder}}</h3> </ion-text>
+          </div>
+          <div slot="end" class="rest" *ngIf="haveAudio === true">
+            <ion-button size="large" color="tertiary" (click)="playAudio(wirds?.audio_url)" *ngIf="player === false && wirds?.audio_url">
+              <ion-icon slot="icon-only" name="play-outline" size="large"></ion-icon>
+            </ion-button>
+            <ion-button size="large" color="tertiary" (click)="stopAudio()" *ngIf="player === true">
+              <ion-icon slot="icon-only" name="pause-outline" size="large"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-item>
+      </ion-card-footer>
+    </ion-card>
+    <ion-card>
+      <div class="counter-circle-container">
+        <div class="counter-circle" (click)="incrementCount()">
+          <div class="count">{{ count }}</div>
+          <div class="total">/{{ wirds?.total }}</div>
+        </div>
+      </div>
+      <div class="fingerprint" (click)="incrementCount()">
+        <ion-icon name="finger-print-outline"></ion-icon>
+      </div>
+    </ion-card>
+    <audio #audioPlayer>
+      <source [src]="wirds?.audio_url" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    </div>
+  </div>
+  <ion-modal #modal trigger="lang" [initialBreakpoint]="0.75" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="tertiary">
+          <br>
+          <ion-title>{{ 'LANG' | translate }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" color="light">
+        <ion-item>
+          <ion-select aria-label="Langues" interface="popover" [(ngModel)]="language" placeholder="{{ 'LANG' | translate }}"
+            (ionChange)="languageInput($event)">
+
+            <ion-select-option value="fr">
+              <img src="../../assets/fr-flag.png" alt="{{ 'FR' | translate }}" class="flag-icon"> {{ 'FR' | translate }}
+            </ion-select-option>
+
+            <ion-select-option value="en">
+              <img src="assets/en-flag.png" alt="{{ 'EN' | translate }}" class="flag-icon"> {{ 'EN' | translate }}
+            </ion-select-option>
+
+            <ion-select-option value="ml">
+              <img src="assets/ml-flag.png" alt="{{ 'ML' | translate }}" class="flag-icon"> {{ 'ML' | translate }}
+            </ion-select-option>
+            <ion-select-option value="ar">
+              <img src="assets/ml-flag.png" alt="{{ 'AR' | translate }}" class="flag-icon"> {{ 'AR' | translate }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

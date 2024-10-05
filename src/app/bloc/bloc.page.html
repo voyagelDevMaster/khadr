@@ -1,0 +1,53 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="wrapper">
+    <ion-item lines="none">
+      <ion-fab-button size="small">
+        <ion-icon name="newspaper-outline" color="tertiary"></ion-icon>
+      </ion-fab-button>
+      <ion-label color="light">
+        <ion-title>Multimédia</ion-title>
+      </ion-label>
+      <ion-fab-button size="small" (click)="close()">
+        <ion-icon name="close-outline" color="tertiary"></ion-icon>
+      </ion-fab-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-segment class="segment" value="article" (ionChange)="segmentChanged($event)" mode="ios">
+    <ion-segment-button value="article">
+      <ion-label>Articles</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="video">
+      <ion-label>Vidéos</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div *ngIf="segment === 'article'">
+    <ion-card *ngFor="let bloc of blocs | async">
+      <ion-card-header>
+      </ion-card-header>
+      <img alt="Silhouette of mountains" [src]="bloc?.img" />
+      <ion-card-content>
+        <ion-card-title>{{bloc?.title}}</ion-card-title>
+      </ion-card-content>
+      <ion-button expand="block" color="tertiary">Lire plus <ion-icon name="book-outline" slot="end"></ion-icon>
+      </ion-button>
+    </ion-card>
+  </div>
+  <div *ngIf="segment === 'video'">
+    <ion-card *ngFor="let bloc of videos | async">
+      <ion-card-header>
+      </ion-card-header>
+      <div class="video-container">
+        <iframe width="100%" height="315" [src]="bloc?.url" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <ion-card-content>
+        <ion-card-title>{{bloc?.title}}</ion-card-title>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,237 @@
+ion-header {
+  background: var(--ion-color-light);
+
+  ion-toolbar.wrapper {
+    --background: var(--ion-color-tertiary);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    ion-item,
+    ion-toolbar.srchBar {
+      --background: transparent;
+    }
+
+    ion-item {
+      margin: 1.1vh 0;
+
+      ion-label {
+        font-size: 1.15rem;
+
+        ion-icon {
+          margin-right: 3px;
+        }
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+
+        p {
+          margin-top: 3px;
+          font-size: 1.2rem;
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+
+      ion-fab-button {
+        --background: #fff;
+
+        ion-badge {
+          color: var(--ion-color-primary);
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin-top: 0.45rem;
+          margin-right: 0.45rem;
+          font-size: 0.1rem;
+          padding: 0.25rem !important;
+          border-radius: 50px;
+        }
+      }
+    }
+  }
+}
+
+ion-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--ion-color-light);
+}
+.numOrder {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--ion-color-light);
+  align-items: center;
+  justify-content: center;
+}
+ion-content {
+  --background: url("../../assets/b.jpg") repeat ;
+  display: flex;
+  flex-direction: column;
+}
+
+.swiper {
+  padding: 15px 0;
+}
+
+.wird-card {
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+ion-card-header {
+  background: var(--ion-color-light);
+}
+
+ion-card-title, ion-card-subtitle {
+  color: var(--ion-color-dark);
+}
+
+.card-scroll {
+  max-height: 210px; /* Ensure this value works for your design */
+  overflow-y: auto; /* Enable vertical scrolling */
+  flex: 1; /* Ensure it takes up available space */
+}
+
+.scrollable-content {
+  max-height: 100%; /* Keep this as is, but ensure .card-scroll is constrained */
+  overflow-y: auto; /* Vertical scroll within content */
+  padding: 15px; /* Add padding if needed */
+}
+
+.counter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.count-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.count-text {
+  font-size: 6.8rem;
+  color: var(--ion-color-tertiary);
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fingerprint {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  font-size: 80px;
+  color: var(--ion-color-tertiary);
+  --ionicon-stroke-width: 10px;
+}
+
+.audio-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.audio-btn {
+  --background: var(--ion-color-tertiary);
+  --color: var(--ion-color-light);
+}
+
+.segment-container {
+  margin: 20px 0;
+}
+
+ion-segment {
+  --background: var(--ion-color-tertiary);
+  --indicator-color: var(--ion-color-tertiary);
+}
+
+ion-segment-button {
+  --background-checked: var(--ion-color-tertiary);
+  --color-checked: var(--ion-color-tertiary);
+}
+
+.segment {
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.translation-content, .arabic-content {
+  text-align: center;
+  padding: 20px;
+  color: var(--ion-color-dark);
+  background: var(--ion-color-light);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.phrase-display {
+  text-align: center;
+  margin-bottom: 5px;
+  --background: var(--ion-color-tertiary);
+}
+.tasbih-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.arabic-text {
+  font-size: 2rem;
+  direction: rtl;
+}
+
+.counter-circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 20px auto;
+}
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 160px;
+  transform: rotate(-90deg);
+}
+.counter-circle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 10px solid var(--ion-color-tertiary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.count {
+  font-size: 48px;
+  font-weight: bold;
+}
+.total {
+  font-size: 24px;
+}
+

@@ -1,0 +1,35 @@
+<ion-content class="ion-padding">
+  <br><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <!-- Login Page -->
+        <div class="auth-container" >
+          <h1 class="heading">
+            <img  src="assets/logo.png" width="150" />
+          </h1>
+          <ion-item lines="none" class="ion-item">
+            <ion-input labelPlacement="stacked" label="Email"[(ngModel)]="email" type="email" placeholder="Votre email">
+              <ion-icon slot="start" name="mail" aria-hidden="true"></ion-icon>
+            </ion-input>
+          </ion-item>
+          <ion-item lines="none" class="ion-item">
+            <ion-input labelPlacement="stacked" label="Mot de passe" type="password"[(ngModel)]="password">
+              <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
+              <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+            </ion-input>
+          </ion-item>
+
+          <ion-button class="login-button"  shape="round" color="tertiary" (click)="signIn()" expand="block"
+            >Connexion</ion-button
+          >
+          <ion-button class="google-button" expand="block" shape="round" fill="outline" color="medium" (click)="signInWithGoogle()">
+            <!-- <ion-icon name="logo-google"  class="google-icon"></ion-icon> -->
+            <img  src="assets/go.png" width="50"  slot="start"/>
+            Google
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

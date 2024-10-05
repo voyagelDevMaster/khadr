@@ -1,0 +1,137 @@
+ion-header {
+  background: var(--ion-color-light);
+
+  ion-toolbar.wrapper {
+    --background: var(--ion-color-tertiary);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    ion-item,
+    ion-toolbar.srchBar {
+      --background: transparent;
+    }
+
+    ion-item {
+      margin: 1.1vh 0;
+
+      ion-label {
+        font-size: 1.15rem;
+
+        ion-icon {
+          margin-right: 3px;
+        }
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+
+        p {
+          margin-top: 3px;
+          font-size: 1.2rem;
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+
+      ion-fab-button {
+        --background: #fff;
+
+        ion-badge {
+          color: var(--ion-color-primary);
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin-top: 0.45rem;
+          margin-right: 0.45rem;
+          font-size: 0.1rem;
+          padding: 0.25rem !important;
+          border-radius: 50px;
+        }
+      }
+    }
+  }
+}
+ion-content {
+  --background: url('../../assets/b.jpg')  repeat;
+  padding: 16px;
+}
+
+.flag-icon {
+  width: 20px;
+  height: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+// ion-select {
+//   --background: #f0f0f0; /* Fond gris clair pour le select */
+//   --placeholder-color: #858585e2; /* Couleur du placeholder pour le rendre moins contrasté */
+//   --color-focused: #4caf50; /* Couleur verte pour le texte sélectionné */
+//   --placeholder-opacity: 0.7; /* Légère transparence pour le placeholder */
+//   border-radius: 8px; /* Coins arrondis */
+// }
+
+ion-item {
+  --inner-padding: 12px; /* Espacement interne pour l'élément */
+  --background: #fafafa; /* Fond léger */
+  border-radius: 8px; /* Coins arrondis pour l'item */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Petite ombre pour un effet flottant */
+}
+
+// ion-select-option {
+//   --background: #ffffff; /* Fond blanc pour les options */
+//   --color: #333; /* Couleur sombre pour le texte des options */
+// }
+
+ion-list-header{
+  font-size: 2.3rem;
+  margin-top: 10px;
+}
+ion-item-divider {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color:  var(--ion-color-tertiary); /* Texte gris pour moins de contraste */
+  background-color: transparent; /* Suppression de la couleur de fond pour un look plus propre */
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+ion-item {
+  --background: #fff; /* Fond blanc pour les éléments */
+  border-radius: 12px; /* Coins arrondis pour un look moderne */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre subtile pour un effet de carte */
+  margin-bottom: 12px; /* Espace entre les éléments */
+  padding: 12px;
+}
+
+ion-icon {
+  font-size: 1.4rem; /* Icônes légèrement plus grandes */
+  color: var(--ion-color-tertiary); /* Couleur verte pour un aspect frais */
+}
+
+ion-label {
+  font-size: 1rem; /* Taille de texte équilibrée */
+  color: #333; /* Texte plus sombre pour un meilleur contraste */
+}
+
+ion-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4caf50; /* Couleur verte pour le thème */
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  margin-left: auto; /* Aligner le rond à droite */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Ajouter une ombre pour l'effet flottant */
+}
+
+ion-list {
+  --padding-start: 0; /* Suppression du padding initial pour aligner les items */
+}
+
+ion-item[lines="full"] {
+  --inner-padding-end: 0; /* Suppression du padding de fin pour les items */
+}

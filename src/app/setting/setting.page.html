@@ -1,0 +1,99 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="wrapper">
+    <ion-item lines="none">
+      <ion-label color="light">
+        <ion-title>{{ 'SETTINGS' | translate }}</ion-title>
+      </ion-label>
+      <ion-fab-button size="small" (click)="close()">
+        <ion-icon name="close-outline" color="tertiary"></ion-icon>
+      </ion-fab-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item-divider color="light">
+      <ion-label>{{ 'PROFILE' | translate }}</ion-label>
+    </ion-item-divider>
+
+    <ion-item lines="none" button>
+      <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+      <ion-label>{{ 'EDIT-PROFILE' | translate }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" button>
+      <ion-icon slot="start" name="shield-checkmark-outline"></ion-icon>
+      <ion-label>{{ 'SUBSCRIPTION' | translate }}</ion-label>
+    </ion-item>
+    <br>
+    <ion-item-divider color="light">
+      <ion-label>{{ 'APP-SETTING' | translate }}</ion-label>
+    </ion-item-divider>
+
+    <ion-item lines="none" button id="language">
+      <ion-icon slot="start" name="language-outline"></ion-icon>
+      <ion-label>{{ 'LANGUAGE' | translate }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" button id="about">
+      <ion-icon slot="start" name="book-outline"></ion-icon>
+      <ion-label>{{ 'ABOUT' | translate }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" button (click)="shareApp()">
+      <ion-icon slot="start" name="hand-left-outline"></ion-icon>
+      <ion-label>{{ 'SHARE' | translate }}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" button>
+      <ion-icon slot="start" name="calendar-outline"></ion-icon>
+      <ion-label>{{ 'CALENDAR' | translate }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-modal #modal trigger="about" [initialBreakpoint]="0.75" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="tertiary">
+          <br>
+          <ion-title>{{ 'ABOUT' | translate }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" color="light">
+        <iframe [src]="sanitizedUrl" width="100%" height="100%" frameborder="0"></iframe>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <ion-modal #modal trigger="language" [initialBreakpoint]="0.5" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="tertiary">
+          <br>
+          <ion-title>{{ 'LANG' | translate }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" color="light">
+        <ion-item>
+          <ion-select aria-label="Langues" interface="popover" [(ngModel)]="language" placeholder="{{ 'LANG' | translate }}"
+            (ionChange)="languageInput($event)">
+
+            <ion-select-option value="fr">
+              <img src="../../assets/fr-flag.png" alt="{{ 'FR' | translate }}" class="flag-icon"> {{ 'FR' | translate }}
+            </ion-select-option>
+
+            <ion-select-option value="en">
+              <img src="assets/en-flag.png" alt="{{ 'EN' | translate }}" class="flag-icon"> {{ 'EN' | translate }}
+            </ion-select-option>
+
+            <ion-select-option value="ml">
+              <img src="assets/ml-flag.png" alt="{{ 'ML' | translate }}" class="flag-icon"> {{ 'ML' | translate }}
+            </ion-select-option>
+            <ion-select-option value="ar">
+              <img src="assets/ml-flag.png" alt="{{ 'AR' | translate }}" class="flag-icon"> {{ 'AR' | translate }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
