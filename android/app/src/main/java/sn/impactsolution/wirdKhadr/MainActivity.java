@@ -1,4 +1,4 @@
-package sn.impactsolution.wirdTidiane;
+package sn.impactsolution.wirdKhadr;
 
 import com.getcapacitor.BridgeActivity;
 

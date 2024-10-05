@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'sn.impactsolution.wirdkhadr',
+  appId: 'sn.impactsolution.wirdKhadr',
   appName: 'Wird Khadr',
   webDir: 'www'
 };
