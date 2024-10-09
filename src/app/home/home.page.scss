@@ -49,6 +49,25 @@ ion-header {
     }
   }
 }
+/* src/app/home/home.page.scss */
+
+.english-text {
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+}
+
+.arabic-text {
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.bold-text {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700; /* Bold */
+}
+
 ion-content {
   --background: url('../../assets/b.jpg') repeat;
   /* autres styles existants */
@@ -77,7 +96,11 @@ ion-content {
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-
+  .tashih {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
   .icon-col:hover {
     transform: scale(1.1); /* Slightly enlarge on hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Add shadow on hover */
@@ -101,7 +124,50 @@ ion-content {
     text-align: center; /* Centrer le texte sous l'icône */
     margin-top: 8px; /* Ajout d'un espace entre l'image et le texte */
   }
+  ion-card {
+    background-color: #fff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+    border: 1px solid var(--ion-color-primary);;
+  }
+  // ion-card {
+  //   background-color: #fff;
+  //   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  //   border-radius: 4px;
+  //   padding: 20px;
+  //   border: 1px solid var(--ion-color-primary);;
+  // }
 
+  ion-card:hover {
+    transform: scale(1.02);
+  }
+
+  ion-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  ion-card-content p {
+    color: #666;
+  }
+
+  ion-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  ion-item {
+    margin-top: 10px;
+    --padding-start: 0;
+    --inner-padding-end: 10px;
+  }
   @media (max-width: 576px) {
     /* Responsive adjustments for smaller screens */
     .icon-row {

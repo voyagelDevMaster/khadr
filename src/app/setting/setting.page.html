@@ -51,16 +51,85 @@
     </ion-item>
   </ion-list>
 
-  <ion-modal #modal trigger="about" [initialBreakpoint]="0.75" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+  <ion-modal #modal trigger="about" [initialBreakpoint]="1" [breakpoints]="[0, 0.5, 0.75, 1]">
     <ng-template>
-      <ion-header>
+      <ion-header class="ion-no-border">
         <ion-toolbar color="tertiary">
-          <br>
-          <ion-title>{{ 'ABOUT' | translate }}</ion-title>
+          <ion-title>Sabikhouna fil khayraat</ion-title>
+          <ion-button shape="round" slot="end" (click)="modal.dismiss()" color="light">
+            <ion-icon slot="icon-only" name="close-outline" color="tertiary"></ion-icon>
+          </ion-button>
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding" color="light">
-        <iframe [src]="sanitizedUrl" width="100%" height="100%" frameborder="0"></iframe>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              Sabikhouna fil khayraat
+            </ion-card-title>
+            <ion-card-subtitle>
+              Cheikh Ahmed Karim Cisse
+            </ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <p>
+              Une institution inspirée des idéaux du saint coran et des écritures saintes pour promouvoir la paix, la justice, la protection de l'environnement et la spiritualité inclusive et universelle à travers la fraternité confrerique et la tolérance.
+            </p>
+            <p>
+              Sabikhouna fil khayraat n'est pas seulement une association, un mouvement ou une fondation, c'est un état d'esprit, un mindset spirituel et islamique.
+            </p>
+            <ion-item color="light">
+              <ion-label>
+                <strong>Application gratuite</strong><br />
+                Vos donations sont les bienvenues.
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <p>Une partie des donations servira à aider les enfants mendiants.</p>
+                <p>Pour vos donations par PayPal : envoyer votre e-mail à <strong>flexisysteme&#64;gmail.com</strong></p>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>L'Importance du Zikr ou Dhikr dans l'Islam</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-label>
+                  <h3>Introduction</h3>
+                  <p>Le zikr ou (dhikr) occupe une place centrale dans la spiritualité islamique, particulièrement dans la tradition soufie...</p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <h3>Fondements Coraniques</h3>
+                  <blockquote>
+                    <p>"Dans des maisons [mosquées et zawiyas] qu'Allah a permis que son nom soit sanctifié..." (An-Nur: 36)</p>
+                  </blockquote>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <h3>Les Bienfaits Spirituels du zikr</h3>
+                  <ul>
+                    <li>Purification de l'âme (tazkiyat an-nafs)</li>
+                    <li>Proximité Divine</li>
+                    <li>Pardon Divin</li>
+                    <li>Élévation Spirituelle</li>
+                    <li>Présence du Cœur (hudur al-qalb)</li>
+                  </ul>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
       </ion-content>
     </ng-template>
   </ion-modal>

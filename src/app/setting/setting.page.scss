@@ -64,7 +64,49 @@ ion-content {
   margin-right: 8px;
   vertical-align: middle;
 }
+ion-card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3a3a3a;
+}
 
+ion-card-subtitle {
+  font-size: 1rem;
+  color: #707070;
+}
+
+ion-item {
+  margin-top: 10px;
+}
+
+ion-label p {
+  color: #4c4c4c;
+  font-size: 1rem;
+}
+
+ion-label blockquote {
+  font-style: italic;
+  color: #6b6b6b;
+  padding-left: 1rem;
+  border-left: 4px solid #2c7bff;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 6px;
+  color: #333;
+}
 // ion-select {
 //   --background: #f0f0f0; /* Fond gris clair pour le select */
 //   --placeholder-color: #858585e2; /* Couleur du placeholder pour le rendre moins contrasté */

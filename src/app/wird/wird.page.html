@@ -54,18 +54,13 @@
               <ion-icon slot="icon-only" name="list-outline" size="large"></ion-icon>
             </ion-button>
           </div>
-          <div  class="numOrder">
+          <div  class="numOrder" slot="end">
             <ion-text color="light"><h3>{{ 'STEP' | translate }} {{wirds?.numOrder}}</h3> </ion-text>
           </div>
-          <div slot="end" class="rest" *ngIf="haveAudio === true">
-            <ion-button size="large" color="tertiary" (click)="playAudio(wirds?.audio_url)" *ngIf="player === false && wirds?.audio_url">
-              <ion-icon slot="icon-only" name="play-outline" size="large"></ion-icon>
-            </ion-button>
-            <ion-button size="large" color="tertiary" (click)="stopAudio()" *ngIf="player === true">
-              <ion-icon slot="icon-only" name="pause-outline" size="large"></ion-icon>
-            </ion-button>
-          </div>
         </ion-item>
+       <ion-item class="count"  color="tertiary" lines="none" *ngIf="wirds?.audio_url">
+          <audio controls [src]="wirds?.audio_url" *ngIf="wirds?.audio_url"></audio>
+       </ion-item>
       </ion-card-footer>
     </ion-card>
     <ion-card>

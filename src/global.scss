@@ -67,3 +67,12 @@ swiper-slide img {
   height: auto;
   max-height: 100%;
 }
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* Optionnel: pour les textes en arabe, vous pouvez utiliser Cairo */
+.arabic-text {
+  font-family: 'Cairo', sans-serif;
+}
