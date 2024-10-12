@@ -38,7 +38,9 @@
       </div>
       <ion-label>
         <strong> <ion-text class="arabic">{{wird.ar_name}}</ion-text> </strong><br />
-        <ion-note color="medium" class="ion-text-wrap">{{wird.transcription}}</ion-note>
+        <ion-note color="medium" class="ion-text-wrap" *ngIf="currentLanguage === 'fr'">{{wird.fr_name}}</ion-note>
+        <ion-note color="medium" class="ion-text-wrap" *ngIf="currentLanguage === 'en'">{{wird.en_name}}</ion-note>
+        <ion-note color="medium" class="ion-text-wrap" *ngIf="currentLanguage === 'ml'">{{wird.ml_name}}</ion-note>
       </ion-label>
       <div class="metadata-end-wrapper" slot="end">
         <ion-note color="dark">{{wird.total}} fois</ion-note>
