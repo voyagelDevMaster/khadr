@@ -71,7 +71,15 @@ export class BlocService {
   get blocs(): Observable<Bloc[]>{
     return this._blocs.asObservable();
   }
-
+  async link(){
+    const {data, error} = await this.db.from('community').select('*').eq('id', 3).single()
+    if(error){
+      console.log("Error fetching about data", error)
+    }else{
+      console.log("��� ~ OnlineService ~ loadAbout ~ data:", data)
+    }
+    return data
+  }
   async about(){
     const about = await this.db.from('about').select('*')
     return about.data[0]

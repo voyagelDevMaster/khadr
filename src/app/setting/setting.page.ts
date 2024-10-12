@@ -18,6 +18,7 @@ export class SettingPage implements OnInit {
   currentLanguage: string = 'en';
   about: any
   languages: any;
+  link: any = '';
   constructor(
     private storage: Storage,
     private sanitizer: DomSanitizer,
@@ -43,6 +44,8 @@ export class SettingPage implements OnInit {
       }
     })
     this.about = await this.blocService.about()
+    this.link = await this.blocService.link()
+    console.log("🚀 ~ SettingPage ~ ngOnInit ~ this.link:", this.link)
     console.log("🚀 ~ SettingPage ~ ngOnInit ~ this.about:", this.about)
   }
   async languageInput(event: any) {
@@ -56,7 +59,7 @@ export class SettingPage implements OnInit {
     await Share.share({
       title: 'As-salāmu ʿalaykum',
       text: 'Salam, télécharge la meilleure appli musulmane GRATUITEMENT ici:',
-      url: 'https://dashboard.ionicframework.com/preview/922e2a7a/ptwzykhmps',
+      url: this.link.link,
       dialogTitle: 'Partager avec vos proches',
     });
   }

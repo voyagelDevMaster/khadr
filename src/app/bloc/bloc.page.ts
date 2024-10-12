@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlocService } from '../services/bloc.service';
 import { Router } from '@angular/router';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { map, Observable } from 'rxjs';
-import { Bloc } from '../services/models/bloc.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-bloc',
@@ -25,6 +23,9 @@ export class BlocPage implements OnInit {
     // Sanitize video URLs(: { url: string; })
   }
 
+  enableVideo(url: any) {
+      return this.sanitizer.bypassSecurityTrustResourceUrl(url)
+  }
   close() {
     this.router.navigate(['home']);
   }
