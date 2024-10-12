@@ -13,7 +13,7 @@ import { Bloc } from '../services/models/bloc.model';
 export class BlocPage implements OnInit {
   blocs = this.blocService.blocs;
   videos = this.blocService.Videoblocs;
-  public segment: string = "article";
+  public segment: string = "video";
 
 
   constructor(private blocService: BlocService,

@@ -12,6 +12,7 @@ export class BlocService {
   private db: any;
   private _blocs : BehaviorSubject<any> = new BehaviorSubject([])
   private _videoBlocs : BehaviorSubject<any> = new BehaviorSubject([])
+  private _about :  BehaviorSubject<any> = new BehaviorSubject([])
 
   constructor(private supabase: SupabaseService) {
     this.db = this.supabase.connect();
@@ -22,9 +23,11 @@ export class BlocService {
    async loadBlocs() {
     const query = await this.db.from(BLOC_BD).select('*').eq('communityId', 3).eq('type', 'texte');
     const video = await this.db.from(BLOC_BD).select('*').eq('communityId', 3).eq('type', 'video');
+    const about = await this.db.from('about').select('*')
     console.log("🚀 ~ BlocService ~ loadBlocs ~ query:", query.data)
     this._blocs.next(query.data);
     this._videoBlocs.next(video.data);
+    this._about.next(about.data)
   }
 
   handleChange() {
@@ -67,6 +70,11 @@ export class BlocService {
   }
   get blocs(): Observable<Bloc[]>{
     return this._blocs.asObservable();
+  }
+
+  async about(){
+    const about = await this.db.from('about').select('*')
+    return about.data[0]
   }
 
 }

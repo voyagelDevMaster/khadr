@@ -5,7 +5,8 @@ import { SettingService } from '../services/setting.service';
 import { Share } from '@capacitor/share';
 import { TranslateService } from '@ngx-translate/core';
 
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';@Component({
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';import { BlocService } from '../services/bloc.service';
+@Component({
   selector: 'app-setting',
   templateUrl: './setting.page.html',
   styleUrls: ['./setting.page.scss'],
@@ -15,17 +16,20 @@ export class SettingPage implements OnInit {
   language:any = '';
   sanitizedUrl: SafeResourceUrl | undefined;
   currentLanguage: string = 'en';
+  about: any
+  languages: any;
   constructor(
     private storage: Storage,
     private sanitizer: DomSanitizer,
     private router: Router,
     private translate: TranslateService,
+    private blocService: BlocService,
     private settingService: SettingService,) {
       this.storage.create();
       this.translate.setDefaultLang('en');
     }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.settingService.language.subscribe(lang => {
       this.currentLanguage = lang || 'en'; // Default to English
       this.translate.use(this.currentLanguage);
@@ -38,8 +42,8 @@ export class SettingPage implements OnInit {
         this.isInit = true
       }
     })
-    const url = 'https://tidjaniya.com/fr/les-merites-et-graces-de-la-tariqa-tidjaniya/';
-    this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    this.about = await this.blocService.about()
+    console.log("🚀 ~ SettingPage ~ ngOnInit ~ this.about:", this.about)
   }
   async languageInput(event: any) {
     let value = event.target.value;
@@ -54,6 +58,11 @@ export class SettingPage implements OnInit {
       text: 'Salam, télécharge la meilleure appli musulmane GRATUITEMENT ici:',
       url: 'https://dashboard.ionicframework.com/preview/922e2a7a/ptwzykhmps',
       dialogTitle: 'Partager avec vos proches',
+    });
+  }
+  async loadSettings() {
+    this.settingService.language.subscribe((language) => {
+      this.languages = language || this.languages; // Use default if language is null
     });
   }
 }

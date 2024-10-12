@@ -55,7 +55,7 @@
     <ng-template>
       <ion-header class="ion-no-border">
         <ion-toolbar color="tertiary">
-          <ion-title>Sabikhouna fil khayraat</ion-title>
+          <ion-title>{{ 'ABOUT' | translate }}</ion-title>
           <ion-button shape="round" slot="end" (click)="modal.dismiss()" color="light">
             <ion-icon slot="icon-only" name="close-outline" color="tertiary"></ion-icon>
           </ion-button>
@@ -65,91 +65,19 @@
         <ion-card color="light">
           <ion-card-header>
             <ion-title text-center>
-              "Saabikhouna fil Khayraat : une institution inspirée des idéaux du saint Coran et des écritures saintes"
+              <p *ngIf="currentLanguage === 'fr'">{{about.fr_title}}</p>
+              <p *ngIf="currentLanguage === 'ar'">{{about.ar_title}}</p>
+              <p *ngIf="currentLanguage === 'en'">{{about.en_title}}</p>
+              <p *ngIf="currentLanguage === 'ml'">{{about.ml_title}}</p>
             </ion-title>
           </ion-card-header>
           <ion-card-content>
-            <p>Cheikh Ahmed Karim Cisse</p>
-            <p>Saabikhouna fil khayraat n'est pas seulement une association, un mouvement ou une fondation, c'est un état d'esprit, un mindset spirituel et islamique.</p>
-          </ion-card-content>
-        </ion-card>
-
-        <ion-card>
-          <ion-card-content>
-            <p>L'application est gratuite, mais vos donations sont les bienvenues. Une partie des donations servira à aider les enfants mendiants.</p>
-            <p>Pour vos donations par PayPal : envoyer votre e-mail à <strong>flexisysteme&#64;gmail.com</strong></p>
-          </ion-card-content>
-        </ion-card>
-
-        <ion-card color="tertiary">
-          <ion-card-header>
-            <ion-title text-center>L'Importance du Zikr ou Dhikr dans l'Islam</ion-title>
-          </ion-card-header>
-          <ion-card-content>
-            <h2>Introduction</h2>
-            <p>Le zikr ou (dhikr) occupe une place centrale dans la spiritualité islamique, particulièrement dans la tradition soufie. Cette pratique est solidement ancrée dans de nombreux versets coraniques qui soulignent son importance dans le cheminement spirituel des croyants.</p>
-
-            <h2>Fondements Coraniques</h2>
-            <p><strong>Les Espaces Sacrés du zikr</strong></p>
-            <blockquote>فِي بُيُوتٍ أَذِنَ اللَّهُ أَن تُرْفَعَ وَيُذْكَرَ فِيهَا اسْمُهُ يُسَبِّحُ لَهُ فِيهَا بِالْغُدُوِّ وَالْآصَالِ</blockquote>
-            <p>"Dans des maisons [mosquées et zawiyas] qu'Allah a permis que Son Nom soit sanctifié, et où Son Nom est invoqué; ils glorifient leur seigneur matin et soir" (An-Nur: 36)</p>
-
-            <p><strong>La Voie de l'Excellence Spirituelle</strong></p>
-            <blockquote>وَلِكُلٍّ وِجْهَةٌ هُوَ مُوَلِّيهَا فَاسْتَبِقُوا الْخَيْرَاتِ</blockquote>
-            <p>"Et pour chaque destination, Il est son Maître. Alors précipitez-vous vers les bonnes actions." (Al-Baqarah: 148)</p>
-
-            <p><strong>La Promesse de la Miséricorde Divine</strong></p>
-            <blockquote>سَابِقُوا إِلَىٰ مَغْفِرَةٍ مِّن رَّبِّكُمْ</blockquote>
-            <p>"Précipitez-vous vers le pardon de votre Seigneur ..." (Al-Hadid: 21)</p>
-
-            <h2>Les Bienfaits Spirituels du Zikr</h2>
-            <ul>
-              <li>Purification de l'Âme (tazkiyat an-nafs)</li>
-              <li>Proximité Divine</li>
-              <li>Pardon Divin</li>
-              <li>Élévation Spirituelle</li>
-              <li>Présence du Cœur (hudur al-qalb)</li>
-            </ul>
-          </ion-card-content>
-        </ion-card>
-
-        <ion-card>
-          <ion-card-content>
-            <h2>Le Rôle des Litanies Soufies (Awrad)</h2>
-            <p>Les invocations structurées dans le soufisme servent plusieurs objectifs :</p>
-            <ul>
-              <li>Maintien d'une connexion permanente avec Allah</li>
-              <li>Développement de la conscience spirituelle</li>
-              <li>Culture de l'amour divin</li>
-              <li>Accession aux stations spirituelles élevées (maqamat)</li>
-            </ul>
-          </ion-card-content>
-        </ion-card>
-
-        <ion-card>
-          <ion-card-content>
-            <h2>Les Pratiques du Zikr</h2>
-            <p><strong>Méthodes Traditionnelles</strong></p>
-            <ul>
-              <li>Récitation individuelle</li>
-              <li>Cercles de dhikr collectifs</li>
-              <li>Retraites spirituelles</li>
-              <li>Invocations quotidiennes</li>
-            </ul>
-
-            <p><strong>Moments Privilégiés</strong></p>
-            <ul>
-              <li>À l'aube et au crépuscule</li>
-              <li>Après les prières obligatoires</li>
-              <li>Durant la nuit</li>
-              <li>En tout temps dans le cœur</li>
-            </ul>
-          </ion-card-content>
-        </ion-card>
-
-        <ion-card>
-          <ion-card-content>
-            <p>Le zikr est bien plus qu'une pratique spirituelle facultative ; il constitue une voie fondamentale vers la proximité divine et le salut éternel. Par la pratique régulière de ces invocations, les croyants cultivent une connexion profonde avec le Divin tout en purifiant leur cœur et en élevant leur statut spirituel.</p>
+            <p>
+              <ion-text *ngIf="currentLanguage === 'fr'">{{about.fr}}</ion-text>
+              <ion-text *ngIf="currentLanguage === 'ar'">{{about.ar}}</ion-text>
+              <ion-text *ngIf="currentLanguage === 'en'">{{about.en}}</ion-text>
+              <ion-text *ngIf="currentLanguage === 'ml'">{{about.ml}}</ion-text>
+            </p>
           </ion-card-content>
         </ion-card>
       </ion-content>
